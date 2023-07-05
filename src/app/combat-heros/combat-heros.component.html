@@ -1,0 +1,77 @@
+<div class="zoneCombat">
+    
+  <h1>C'est l'heure du combat</h1>
+
+  <div class="zoneCards" *ngIf="oppenent && hero">
+
+    <div *ngIf="hero" class="cardHero">
+
+      <h2>{{ hero.name }}</h2>
+
+      <div class="imgHero">
+        <img class="card-img imgHero" [src]="hero.picture" alt="Card image" />
+      </div>
+
+      <div class="infoHero">
+        <!-- <p class="card-text">Points de vie : {{ hero.life }}</p> -->
+
+        <p class="card-text">Attaque Spéciale : {{ hero.attaqueSpeciale }}</p>
+        <p>
+          <span class=" {{ hero.type | herosTypeColor }} ">
+            {{ hero.type }}
+          </span>
+        </p>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" [style.width.%]="progressWidthHero"></div>
+      </div>
+
+    </div>
+
+    <div class="zoneVS">
+      <h2 class="titreVs">VS</h2>
+    </div>
+
+    <div *ngIf="oppenent" class="cardOppenent">
+
+      <h2>{{ oppenent.name }}</h2>
+
+      <div class="imgOppenent">
+        <img class="card-img imgOppenent" [src]="oppenent.picture" alt="Card image" />
+      </div>
+
+      <div class="infoOppenent">
+        <!-- <p class="card-text">Points de vie : {{ oppenent.life }}</p> -->
+
+        <p class="card-text">
+          Attaque Spéciale : {{ oppenent.attaqueSpeciale }}
+        </p>
+        <p>
+          <span class=" {{ oppenent.type | herosTypeColor }} ">
+            {{ oppenent.type }}
+          </span>
+        </p>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar" [style.width.%]="progressWidthOppenent"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="zoneBtn">
+    <button class="btn btnFight" (click)="goToFight(hero, oppenent)">
+      Attaquer
+    </button>
+    <button class="btn btnLeave" [routerLink]="['/list-heros']">
+      Abandonner
+    </button>
+  </div>
+
+</div>
+
+<div>
+  <h4 *ngIf="!hero" class="center">Aucun héros à afficher !</h4>
+</div>

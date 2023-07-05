@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+
+.zoneCombat{
+    background-image: url(../../assets/561.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    justify-content: center;
+    color: blanchedalmond;
+    height: 100vh;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.zoneCards{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.cardHero,
+.cardOppenent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infoHero, .infoOppenent {
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.imgHero:hover {
+    transform: rotateX(10deg) rotateY(10deg);
+    /* transform: rotateX(-10deg) rotateY(-10deg); */
+}
+
+.imgOppenent:hover {
+    transform: rotateX(10deg) rotateY(-10deg);
+    /* transform: rotateX(10deg) rotateY(10deg); */
+}
+.card-img {
+    border-radius: 10px;
+    position: relative;
+    perspective: 1000px;
+    transition: transform 0.5s;
+}
+
+
+img{
+    height: 40vh;
+}
+
+.zoneVS {
+    display: flex;
+    align-items: center;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 5rem;
+
+}
+
+.titreVs {
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.zoneBtn {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: blanchedalmond;
+    border-color: blanchedalmond;
+    margin-left: 20px;
+    margin-right: 20px;
+}

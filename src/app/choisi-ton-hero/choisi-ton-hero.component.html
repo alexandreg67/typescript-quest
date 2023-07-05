@@ -1,0 +1,24 @@
+<h1>Choisi ton héro</h1>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- <div *ngFor="let hero of listeHeros" class="card mb-3" style="width:250px" (click)="goToCombatHeroes(hero)"> -->
+        <div *ngFor="let hero of listeHeros" class="card mb-3" style="width:250px" [routerLink]="['/combat', hero.id]">
+                <div class="col">
+                    <div class="text-center">
+                        <img class="card-img" [src]="hero.picture" alt="Card image">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{ hero.name }}</h4>
+                        <p class="card-text"> {{ hero.life }} </p>
+                        <p class="card-text"> {{ hero.attaqueSpeciale }} </p>
+                        <span class=" {{ hero.type | herosTypeColor }} ">
+                            {{ hero.type }}
+                        </span>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+

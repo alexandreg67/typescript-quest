@@ -1,0 +1,40 @@
+<div *ngIf="oppenent" class="row">
+    <div class="col">
+        <h2 class="justify-content-center">{{ oppenent.name }} à gagné</h2>
+        <div class="card">
+            <div class="card-image">
+                <img [src]="oppenent.picture">
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="card-content">
+                        <tbody>
+                            <tr>
+                                <td>Nom</td>
+                                <td><strong>{{ oppenent.name }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Points de vie</td>
+                                <td><strong>{{ oppenent.life }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Dégâts</td>
+                                <td><strong>{{ oppenent.attaqueSpeciale }}</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Types</td>
+                                <td>
+                                    <span class="{{ oppenent.type | herosTypeColor }}">{{ oppenent.type }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-action">
+                    <a (click)="goBack()">Retour</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 *ngIf='!oppenent' class="center">Aucun héro à afficher !</h4>
