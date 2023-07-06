@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HEROSPARAM } from '../classe/mock-heros';
 import { Hero } from '../classe/hero';
 import { Oppenent } from '../classe/opponent';
 import { OPPENENTS } from '../classe/mock-opponent';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-combat-heros',
@@ -12,6 +13,8 @@ import { OPPENENTS } from '../classe/mock-opponent';
 })
 export class CombatHerosComponent implements OnInit{
 
+  imgHero: HTMLElement;
+  imgOppenent: HTMLElement;
   herosListe: any;
   heroParam: any;
   hero: Hero;
@@ -23,12 +26,14 @@ export class CombatHerosComponent implements OnInit{
   progressWidthOppenent: number;
   vieMaxOppenent: number;
 
-  constructor(private route: ActivatedRoute, private router: Router) {
-    this.vieMaxHero = this.hero?.life
+  constructor(private route: ActivatedRoute, private router: Router, private elementRef: ElementRef) {
+    this.imgHero = this.elementRef.nativeElement.querySelector('.imgHero');
+    this.imgOppenent = this.elementRef.nativeElement.querySelector('.imgOppenent');
   }
 
   ngOnInit(): void {
-   
+
+    this.vieMaxHero = this.hero?.life;
     this.herosListe = HEROSPARAM;
     this.oppenentListe = OPPENENTS;
 
@@ -55,29 +60,61 @@ export class CombatHerosComponent implements OnInit{
 
   }
 
-  // goToHerosListe() {
-  //   this.router.navigate(['/list-heros']);
-  // }
+  ngAfterViewInit() {
+    this.imgHero = this.elementRef.nativeElement.querySelector('.imgHero');
+    this.imgOppenent = this.elementRef.nativeElement.querySelector('.imgOppenent');
+  }
 
   goToFight(hero: Hero, opponent: Oppenent) {
     if (opponent != undefined) {
-      hero.attack(opponent);
-      opponent.attack(hero);
+      this.oppenentAttaque(hero, opponent) 
+      this.heroAttaque(hero, opponent)
     }
-    console.log(hero);
-
     if (!hero.isAlive() && !opponent.isAlive()) {
         this.router.navigate(['draw'])
-        console.log("It's a Draw");
-
     }else if (!hero.isAlive()){
         this.router.navigate(['vainqueur-mechant', opponent.id])
-        console.log(`${opponent.name} wins`);
     }else if (!opponent.isAlive()) {
         this.router.navigate(['vainqueur', hero.id])
-        console.log(`${hero.name} wins`);
     }    
-    this.updateProgressWidthHero()
+    this.updateProgressWidthHero()  
+  }
+
+  getLife(hero: Hero) {
+  if (hero.potion > 0 && hero.life < this.vieMaxHero ) { 
+    hero.potion --
+    hero.soin(hero.life);
+    gsap.fromTo(
+    this.imgHero,
+    { rotationX: 0, rotationY: 0 },
+    { rotationX: 50, rotationY: -360, yoyo:true, repeat:1 },
+    );
+    this.updateProgressWidthHero();
+    }
+    if (hero.life > this.vieMaxHero) {
+      hero.life = this.vieMaxHero
+    }
+    if (hero.potion <= 0) {
+      hero.potion = 0
+    }
+  }
+
+  oppenentAttaque(hero:Hero, oppenent: Oppenent) {
+    oppenent.attack(hero); 
+    gsap.fromTo(
+    this.imgOppenent,
+    { rotationX: 0, rotationY: 0 },
+    { rotationX: 20, rotationY: 20, translateX: -50, yoyo: true, repeat: 1 }
+    );
+  }
+
+  heroAttaque(hero: Hero, oppenent: Oppenent) {
+      hero.attack(oppenent);
+      gsap.fromTo(
+      this.imgHero,
+      { rotationX: 0, rotationY: 0 },
+      { rotationX: -20, rotationY: 20, translateX: 50, yoyo: true, repeat: 1 }
+      );
   }
 
   updateProgressWidthHero() {

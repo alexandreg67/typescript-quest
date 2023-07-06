@@ -2,7 +2,7 @@
 export const HEROSPARAM = [
     {
         id: 1,
-        life: 100,
+        life: 160,
         power: 15,
         attaqueSpeciale: 8,
         name: "Arkan",
@@ -11,7 +11,7 @@ export const HEROSPARAM = [
     },
     {
         id: 2,
-        life: 120,
+        life: 180,
         power:15,
         name: "Lyra",
         attaqueSpeciale: 6,
@@ -21,7 +21,7 @@ export const HEROSPARAM = [
     {
         id: 3,
         name: "Aiden",
-        life: 80,
+        life: 140,
         power: 15,
         attaqueSpeciale: 12,
         picture: "../assets/femme_pistolet_rouge.jpg",
@@ -30,7 +30,7 @@ export const HEROSPARAM = [
     {
         id: 4,
         name: "Elara",
-        life: 150,
+        life: 210,
         power: 15,
         attaqueSpeciale: 1,
         picture: "../assets/pretre_bleu.jpg",
@@ -39,7 +39,7 @@ export const HEROSPARAM = [
     {
         id: 5,
         name: "Magnus",
-        life: 110,
+        life: 170,
         power: 15,
         attaqueSpeciale: 9,
         picture: "../assets/pretre_rouge.jpg",
@@ -48,7 +48,7 @@ export const HEROSPARAM = [
     {
         id: 6,
         name: "Seraphina",
-        life: 110,
+        life: 170,
         power:15,
         attaqueSpeciale: 9,
         picture: "../assets/femme_verte_arc.jpg",
@@ -57,7 +57,7 @@ export const HEROSPARAM = [
     {
         id: 7,
         name: "Draven",
-        life: 130,
+        life: 190,
         power: 15,
         attaqueSpeciale: 6,
         picture: "../assets/zombie_vert.jpg",
@@ -66,7 +66,7 @@ export const HEROSPARAM = [
     {
         id: 8,
         name: "Freya",
-        life: 70,
+        life: 130,
         power: 15,
         attaqueSpeciale: 14,
         picture: "../assets/guerriere_hache_marteau.jpg",
@@ -75,7 +75,7 @@ export const HEROSPARAM = [
     {
         id: 9,
         name: "Orion",
-        life: 118,
+        life: 178,
         power: 15,
         attaqueSpeciale: 6,
         picture: "../assets/guerrier_hache_marteau.jpg",
@@ -84,7 +84,7 @@ export const HEROSPARAM = [
     {
         id: 10,
         name: "Lumiya",
-        life: 120,
+        life: 180,
         power: 15,
         attaqueSpeciale: 5,
         picture: "../assets/femme_brun_epee.jpg",
@@ -93,7 +93,7 @@ export const HEROSPARAM = [
     {
         id: 11,
         name: "Xander",
-        life: 100,
+        life: 160,
         power: 15,
         attaqueSpeciale: 8,
         picture: "../assets/bonhomme_vert_pretre.jpg",
@@ -102,7 +102,7 @@ export const HEROSPARAM = [
     {
         id: 12,
         name: "Nova",
-        life: 140,
+        life: 200,
         power: 15,
         attaqueSpeciale: 2,
         picture: "../assets/bonhomme_gris_epee.jpg",

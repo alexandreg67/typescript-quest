@@ -8,6 +8,7 @@ export class Hero {
   name: string;
   picture: string;
   type: string;
+  potion:number;
 
   constructor(id: number, name:string, power: number, life:number, attaqueSpeciale:number, picture: string, type: string) {
       this.name = name;
@@ -17,6 +18,7 @@ export class Hero {
       this.picture = picture,
       this.type = type;
       this.id = id;
+      this.potion = 2;
   }
 
   getId():number {
@@ -49,6 +51,10 @@ export class Hero {
 
   setLife(life:number) {
       this.life = life
+  }
+
+  soin(life:number) {
+    this.life = life + 50
   }
 
   attack(opponent: Oppenent): void{

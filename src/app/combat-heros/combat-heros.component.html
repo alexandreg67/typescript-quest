@@ -13,12 +13,14 @@
       </div>
 
       <div class="infoHero">
-        <!-- <p class="card-text">Points de vie : {{ hero.life }}</p> -->
 
         <p class="card-text">Attaque Spéciale : {{ hero.attaqueSpeciale }}</p>
         <p>
           <span class=" {{ hero.type | herosTypeColor }} ">
             {{ hero.type }}
+          </span>
+          <span>
+            Soins : {{ hero.potion }}
           </span>
         </p>
       </div>
@@ -42,7 +44,6 @@
       </div>
 
       <div class="infoOppenent">
-        <!-- <p class="card-text">Points de vie : {{ oppenent.life }}</p> -->
 
         <p class="card-text">
           Attaque Spéciale : {{ oppenent.attaqueSpeciale }}
@@ -63,7 +64,10 @@
 
   <div class="zoneBtn">
     <button class="btn btnFight" (click)="goToFight(hero, oppenent)">
-      Attaquer
+      Attaque
+    </button>
+    <button class="btn btnFight" (click)="getLife(hero)">
+      Soin
     </button>
     <button class="btn btnLeave" [routerLink]="['/list-heros']">
       Abandonner
