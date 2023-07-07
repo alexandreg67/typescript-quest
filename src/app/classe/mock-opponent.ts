@@ -5,7 +5,7 @@ export const OPPENENTS = [
     {
         id: 1,
         name: "Louis",
-        life: 160,
+        life: 180,
         power: 15,
         attaqueSpeciale: 10,
         picture: "../assets/squelette_epee.jpg",
@@ -20,7 +20,7 @@ export const OPPENENTS = [
     {
         id: 2,
         name: "Jeremy",
-        life: 160,
+        life: 180,
         power: 15,
         attaqueSpeciale: 10,
         picture: "../assets/squelette_hache.jpg",

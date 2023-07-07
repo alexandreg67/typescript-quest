@@ -8,10 +8,18 @@
     color: blanchedalmond;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 h1 {
     font-size: 5rem;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    margin-top: 50px;
+    border-radius: 10px;
 }
