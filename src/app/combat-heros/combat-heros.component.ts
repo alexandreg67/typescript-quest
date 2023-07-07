@@ -11,7 +11,7 @@ import { gsap } from 'gsap';
   templateUrl: './combat-heros.component.html',
   styleUrls: ['./combat-heros.component.css']
 })
-export class CombatHerosComponent implements OnInit, AfterViewInit{
+export class CombatHerosComponent implements OnInit{
 
   @ViewChild('imgHeroPicture') imgHeroPicture: ElementRef;
   @ViewChild('imgOppenentPicture') imgOppenentPicture: ElementRef;
@@ -59,11 +59,6 @@ export class CombatHerosComponent implements OnInit, AfterViewInit{
     this.vieMaxOppenent = this.oppenent.life;
     this.updateProgressWidthHero()
 
-  }
-
-  ngAfterViewInit(): void {
-    console.log("viewChild", this.imgHeroPicture);
-    console.log("viewChild", this.imgOppenentPicture);
   }
 
   goToFight(hero: Hero, opponent: Oppenent) {

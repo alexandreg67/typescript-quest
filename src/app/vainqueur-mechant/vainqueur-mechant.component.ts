@@ -44,7 +44,6 @@ export class VainqueurMechantComponent implements OnInit{
   }
 
   ngAfterViewInit():void {
-    console.log(this.imgOppenentPicture);
     gsap.fromTo(
     this.imgOppenentPicture.nativeElement,
     { rotationX: 0, rotationY: 0 },

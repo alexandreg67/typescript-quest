@@ -5,7 +5,7 @@ import { CombatHerosComponent } from './combat-heros/combat-heros.component';
 import { VainqueurComponent } from './vainqueur/vainqueur.component';
 import { VainqueurMechantComponent } from './vainqueur-mechant/vainqueur-mechant.component';
 import { DrawComponent } from './draw/draw.component';
-import { herosTypeColorPipe } from './heros-type-color.pipe'
+
 
 const routes: Routes = [  
   { path: 'list-heros', component: ChoisiTonHeroComponent},
