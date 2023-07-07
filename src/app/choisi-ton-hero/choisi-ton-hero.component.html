@@ -4,7 +4,7 @@
     
     <div class="container">
 
-            <div *ngFor="let hero of listeHeros" class="card" [routerLink]="['/combat', hero.id]">
+            <div *ngFor="let hero of listeHeros" #heroCard class="card" (click)="openModal(hero.id, hero.name, hero.type)">
                 <div class="col">
                     <div class="text-center">
                         <img class="card-img" [src]="hero.picture" alt="Card image">
@@ -21,9 +21,40 @@
             </div>
 
     </div>
+
+    <div class="modal" #myModal>
+        <div class="modal-dialog">
+            <div class="modal-content">
+    
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">{{ heroName }} veut partir au combat</h4>
+                    <button type="button" class="btn-close closebtn" (click)="closeModal()"></button>
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p> {{heroName}} est un héros de type <span class="{{heroType | herosTypeColor}}"> {{ heroType }} </span>.</p>
+
+                    <p *ngIf="heroType === 'feu'">Si son adversaire est de type <span class="{{ 'plante' | herosTypeColor}}">plante</span>, son attaque spéciale est multiplié par 2! </p>
+
+                    <p *ngIf="heroType === 'eau'">Si son adversaire est de type <span class="{{ 'feu' | herosTypeColor}}">feu</span>, son attaque spéciale est multiplié par 2! </p>
+
+                    <p *ngIf="heroType === 'plante'">Si son adversaire est de type <span class="{{ 'eau' | herosTypeColor}}">eau</span>, son attaque spéciale est multiplié par 2! </p>
+
+                    <p>{{heroName}} peut utiliser 2 fois la potion de soin pour récupérer 50 points de vie!</p>
+                </div>
+    
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" [routerLink]="['/combat',heroId]">Combat</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+
 </main>
-
-
 
 
 

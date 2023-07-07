@@ -48,7 +48,7 @@ export class VainqueurMechantComponent implements OnInit{
     gsap.fromTo(
     this.imgOppenentPicture.nativeElement,
     { rotationX: 0, rotationY: 0 },
-    { rotationX: -60, rotationY: -360, yoyo:true, repeat:3 },
+    { rotationX: 0, rotationY: -360, yoyo:true, repeat:3 },
     );
   }
 

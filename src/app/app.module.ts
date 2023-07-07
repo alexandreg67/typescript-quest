@@ -20,7 +20,7 @@ import { herosTypeColorPipe } from './heros-type-color.pipe';
     DrawComponent,
     VainqueurComponent,
     VainqueurMechantComponent,
-    herosTypeColorPipe
+    herosTypeColorPipe,
   ],
   imports: [
     BrowserModule,

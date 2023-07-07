@@ -44,11 +44,9 @@ export class VainqueurComponent implements OnInit{
     gsap.fromTo(
     this.imgHeroPicture.nativeElement,
     { rotationX: 0, rotationY: 0 },
-    { rotationX: -60, rotationY: -360, yoyo:true, repeat:3 },
+    { rotationX: 0, rotationY: -360, yoyo:true, repeat:3 },
     );
   }
-
-  
 
   goBack(): void {
     this.router.navigate([''])
