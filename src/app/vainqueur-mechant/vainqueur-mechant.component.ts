@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HEROSPARAM } from '../../app/classe/mock-heros';
 import { OPPENENTS } from '../../app/classe/mock-opponent';
 import { Hero } from '../../app/classe/hero';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Oppenent } from '../../app/classe/opponent';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'vainqueur-mechant',
@@ -11,6 +12,8 @@ import { Oppenent } from '../../app/classe/opponent';
   styleUrls: ['./vainqueur-mechant.component.css']
 })
 export class VainqueurMechantComponent implements OnInit{
+
+  @ViewChild('cardVictory') imgOppenentPicture: ElementRef;
 
   herosListe:any;
   oppenent:Oppenent;
@@ -36,6 +39,17 @@ export class VainqueurMechantComponent implements OnInit{
     }else {
       this.router.navigate([''])
     }
+    console.log(this.oppenent.type);
+    
+  }
+
+  ngAfterViewInit():void {
+    console.log(this.imgOppenentPicture);
+    gsap.fromTo(
+    this.imgOppenentPicture.nativeElement,
+    { rotationX: 0, rotationY: 0 },
+    { rotationX: -60, rotationY: -360, yoyo:true, repeat:3 },
+    );
   }
 
   goBack(): void {

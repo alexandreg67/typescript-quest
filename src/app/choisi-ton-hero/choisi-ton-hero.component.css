@@ -1,5 +1,16 @@
+.ecranAcceuil {
+    background-image: url(../../assets/561.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .container {
-    padding: 50px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .card-img {
@@ -10,10 +21,10 @@
 
 .card {
     width: 250px;
-    margin-right: 10px;
-    margin-left: 10px;
-    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.5);    
-    justify-content: space-between;
+    box-shadow: 0px 0px 22px rgba(0, 0, 0, 0.5);   
+    margin-bottom: 20px; 
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .card:hover {
@@ -24,10 +35,9 @@
     box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.5);;
 }
 
-
-
 h1 {
     text-align: center;
-    padding: 10px;
-    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 10px;
+    color: blanchedalmond;
 }

@@ -1,10 +1,10 @@
-<h1>Choisi ton héro</h1>
+<main class="ecranAcceuil">
+    <h1>Choisi ton héro</h1>
+    
+    
+    <div class="container">
 
-
-<div class="container">
-    <div class="row justify-content-center">
-        <!-- <div *ngFor="let hero of listeHeros" class="card mb-3" style="width:250px" (click)="goToCombatHeroes(hero)"> -->
-        <div *ngFor="let hero of listeHeros" class="card mb-3" style="width:250px" [routerLink]="['/combat', hero.id]">
+            <div *ngFor="let hero of listeHeros" class="card" [routerLink]="['/combat', hero.id]">
                 <div class="col">
                     <div class="text-center">
                         <img class="card-img" [src]="hero.picture" alt="Card image">
@@ -18,7 +18,14 @@
                         </span>
                     </div>
                 </div>
-        </div>
+            </div>
+
     </div>
-</div>
+</main>
+
+
+
+
+
+
 

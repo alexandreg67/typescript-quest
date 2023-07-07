@@ -16,10 +16,6 @@ export class ChoisiTonHeroComponent {
 
   ngOnInit(): void {
     
-  }
-
-  // goToCombatHeroes(hero : any) {
-  //   this.router.navigate(['/combat', hero.id])
-  // }
+  } 
 
 }

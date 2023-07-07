@@ -1,38 +1,23 @@
-<div *ngIf="hero" class="row">
-        <h2 class="header center">{{ hero.name }} à gagné</h2>
-        <div class="card">
-            <div class="card-image">
-                <img [src]="hero.picture">
-            </div>
-            <div class="card-content">
-                <table class="">
-                    <tbody>
-                        <tr>
-                            <td>Nom</td>
-                            <td><strong>{{ hero.name }}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Points de vie</td>
-                            <td><strong>{{ hero.life }}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Dégâts</td>
-                            <td><strong>{{ hero.attaqueSpeciale }}</strong></td>
-                        </tr>
-                        <tr>
-                            <td>Type</td>
-                            <td>
-                                <span class="{{ hero.type | herosTypeColor }}">{{ hero.type }}</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="card-action">
-                <a (click)="goBack()">Retour</a>
-            </div>
+<div class="containerVainqueur">
+    <h1> {{ hero.name }} WINS !</h1>
+        <div class="card mb-3" #cardVictory>
+                <div class="text-center">
+                    <img class="card-img" [src]="hero.picture" alt="Card image">
+                </div>
+                <div class="card-body">
+                    <p class="card-text"> {{ hero.life }} </p>
+                    <p class="card-text"> {{ hero.attaqueSpeciale }} </p>
+                    <span class=" {{ hero.type | herosTypeColor }} ">
+                        {{ hero.type }}
+                    </span>
+                </div>
+        </div>
+        <div class="btnContainer">
+            <button (click)="goBack()">Retour</button>
         </div>
 </div>
+
+
 <h4 *ngIf='!hero' class="center">Aucun héro à afficher !</h4>
 
 

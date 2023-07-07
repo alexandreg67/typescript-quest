@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HEROSPARAM } from '../classe/mock-heros';
 import { Hero } from '../classe/hero';
@@ -11,10 +11,13 @@ import { gsap } from 'gsap';
   templateUrl: './combat-heros.component.html',
   styleUrls: ['./combat-heros.component.css']
 })
-export class CombatHerosComponent implements OnInit{
+export class CombatHerosComponent implements OnInit, AfterViewInit{
 
-  imgHero: HTMLElement;
+  @ViewChild('imgHeroPicture') imgHeroPicture: ElementRef;
+  @ViewChild('imgOppenentPicture') imgOppenentPicture: ElementRef;
+
   imgOppenent: HTMLElement;
+  imgHero: HTMLElement
   herosListe: any;
   heroParam: any;
   hero: Hero;
@@ -26,13 +29,11 @@ export class CombatHerosComponent implements OnInit{
   progressWidthOppenent: number;
   vieMaxOppenent: number;
 
-  constructor(private route: ActivatedRoute, private router: Router, private elementRef: ElementRef) {
-    this.imgHero = this.elementRef.nativeElement.querySelector('.imgHero');
-    this.imgOppenent = this.elementRef.nativeElement.querySelector('.imgOppenent');
+  constructor(private route: ActivatedRoute, private router: Router, private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
-
+  
     this.vieMaxHero = this.hero?.life;
     this.herosListe = HEROSPARAM;
     this.oppenentListe = OPPENENTS;
@@ -60,9 +61,9 @@ export class CombatHerosComponent implements OnInit{
 
   }
 
-  ngAfterViewInit() {
-    this.imgHero = this.elementRef.nativeElement.querySelector('.imgHero');
-    this.imgOppenent = this.elementRef.nativeElement.querySelector('.imgOppenent');
+  ngAfterViewInit(): void {
+    console.log("viewChild", this.imgHeroPicture);
+    console.log("viewChild", this.imgOppenentPicture);
   }
 
   goToFight(hero: Hero, opponent: Oppenent) {
@@ -85,7 +86,7 @@ export class CombatHerosComponent implements OnInit{
     hero.potion --
     hero.soin(hero.life);
     gsap.fromTo(
-    this.imgHero,
+    this.imgHeroPicture.nativeElement,
     { rotationX: 0, rotationY: 0 },
     { rotationX: 50, rotationY: -360, yoyo:true, repeat:1 },
     );
@@ -102,7 +103,7 @@ export class CombatHerosComponent implements OnInit{
   oppenentAttaque(hero:Hero, oppenent: Oppenent) {
     oppenent.attack(hero); 
     gsap.fromTo(
-    this.imgOppenent,
+    this.imgOppenentPicture.nativeElement,
     { rotationX: 0, rotationY: 0 },
     { rotationX: 20, rotationY: 20, translateX: -50, yoyo: true, repeat: 1 }
     );
@@ -111,7 +112,7 @@ export class CombatHerosComponent implements OnInit{
   heroAttaque(hero: Hero, oppenent: Oppenent) {
       hero.attack(oppenent);
       gsap.fromTo(
-      this.imgHero,
+      this.imgHeroPicture.nativeElement,
       { rotationX: 0, rotationY: 0 },
       { rotationX: -20, rotationY: 20, translateX: 50, yoyo: true, repeat: 1 }
       );

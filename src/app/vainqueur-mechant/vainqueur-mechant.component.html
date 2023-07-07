@@ -1,40 +1,21 @@
-<div *ngIf="oppenent" class="row">
-    <div class="col">
-        <h2 class="justify-content-center">{{ oppenent.name }} à gagné</h2>
-        <div class="card">
-            <div class="card-image">
-                <img [src]="oppenent.picture">
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <table class="card-content">
-                        <tbody>
-                            <tr>
-                                <td>Nom</td>
-                                <td><strong>{{ oppenent.name }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Points de vie</td>
-                                <td><strong>{{ oppenent.life }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Dégâts</td>
-                                <td><strong>{{ oppenent.attaqueSpeciale }}</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Types</td>
-                                <td>
-                                    <span class="{{ oppenent.type | herosTypeColor }}">{{ oppenent.type }}</span>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-action">
-                    <a (click)="goBack()">Retour</a>
-                </div>
-            </div>
+<div class="containerVainqueur">
+    <h1> {{ oppenent.name }} WINS !</h1>
+    <div class="card mb-3" #cardVictory>
+        <div class="text-center">
+            <img class="card-img" [src]="oppenent.picture" alt="Card image">
+        </div>
+        <div class="card-body">
+            <p class="card-text"> {{ oppenent.life }} </p>
+            <p class="card-text"> {{ oppenent.attaqueSpeciale }} </p>
+            <span class=" {{ oppenent.type | herosTypeColor }} ">
+                {{ oppenent.type }}
+            </span>
         </div>
     </div>
+    <div class="btnContainer">
+        <button (click)="goBack()">Retour</button>
+    </div>
 </div>
+
+
 <h4 *ngIf='!oppenent' class="center">Aucun héro à afficher !</h4>

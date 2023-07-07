@@ -1,0 +1,31 @@
+.containerVainqueur {
+    background-image: url(../../assets/561.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    justify-content: center;
+    color: blanchedalmond;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-body {
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+}
